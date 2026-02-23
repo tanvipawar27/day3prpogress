@@ -1,6 +1,6 @@
 package com.edutech.progressive.dao;
 
-import entity.Team;
+import com.edutech.progressive. entity.Team;
 import java.util.ArrayList;
 import java.util.List;
 

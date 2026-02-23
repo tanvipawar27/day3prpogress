@@ -1,14 +1,15 @@
 package com.edutech.progressive.service.impl;
 
 
-import entity.Cricketer;
-import service.CricketerService;
+import com.edutech.progressive.entity.Cricketer;
+import com.edutech.progressive.service.CricketerService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class CricketerServiceImplArrayList implements CricketerService {
+public class CricketerServiceImplArraylist implements CricketerService {
 
     private List<Cricketer> cricketers = new ArrayList<>();
 
@@ -19,12 +20,14 @@ public class CricketerServiceImplArrayList implements CricketerService {
 
     @Override
     public Integer addCricketer(Cricketer cricketer) {
-        return -1;
+            cricketers.add(cricketer);
+        return 1;
     }
 
     @Override
     public List<Cricketer> getAllCricketersSortedByExperience() {
-        return new ArrayList<>();
+        Collections.sort(cricketers);
+        return cricketers;
     }
 
     @Override

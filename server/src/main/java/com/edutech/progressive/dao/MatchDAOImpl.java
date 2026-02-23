@@ -1,6 +1,6 @@
 package com.edutech.progressive.dao;
 
-import entity.Match;
+import com.edutech.progressive.entity.Match;
 import java.util.ArrayList;
 import java.util.List;
 

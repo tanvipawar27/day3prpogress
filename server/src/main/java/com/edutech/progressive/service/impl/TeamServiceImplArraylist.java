@@ -1,28 +1,32 @@
 package com.edutech.progressive.service.impl;
 
-import entity.Team;
-import service.TeamService;
+import com.edutech.progressive.entity.Team;
+import com.edutech.progressive.service.TeamService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class TeamServiceImplArrayList implements TeamService {
+public class TeamServiceImplArraylist implements TeamService {
 
     private List<Team> teams = new ArrayList<>();
 
     @Override
     public List<Team> getAllTeams() {
-        return new ArrayList<>();
+        return teams;
     }
 
     @Override
     public int addTeam(Team team) {
-        return -1;
+        teams.add(team);
+        return 1;
     }
 
     @Override
     public List<Team> getAllTeamsSortedByName() {
-        return new ArrayList<>();
+// List<Team> t=teamDAO.getAllTeams();
+        Collections.sort(teams);
+        return teams;
     }
 
     @Override
