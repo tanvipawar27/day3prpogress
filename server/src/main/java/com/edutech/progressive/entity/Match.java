@@ -6,6 +6,7 @@ public class Match {
 
     private int matchId;
     private int firstTeamId;
+    private int secondTeamId;
     private Date matchDate;
     private String venue;
     private String result;
@@ -13,10 +14,11 @@ public class Match {
     private int winnerTeamId;
     public Match() {
     }
-    public Match(int matchId, int firstTeamId, Date matchDate, String venue, String result, String status,
-            int winnerTeamId) {
+    public Match(int matchId, int firstTeamId, int secondTeamId, Date matchDate, String venue, String result,
+            String status, int winnerTeamId) {
         this.matchId = matchId;
         this.firstTeamId = firstTeamId;
+        this.secondTeamId = secondTeamId;
         this.matchDate = matchDate;
         this.venue = venue;
         this.result = result;
@@ -34,6 +36,12 @@ public class Match {
     }
     public void setFirstTeamId(int firstTeamId) {
         this.firstTeamId = firstTeamId;
+    }
+    public int getSecondTeamId() {
+        return secondTeamId;
+    }
+    public void setSecondTeamId(int secondTeamId) {
+        this.secondTeamId = secondTeamId;
     }
     public Date getMatchDate() {
         return matchDate;
@@ -65,7 +73,9 @@ public class Match {
     public void setWinnerTeamId(int winnerTeamId) {
         this.winnerTeamId = winnerTeamId;
     }
-
     
 
+
+
+    
 }
