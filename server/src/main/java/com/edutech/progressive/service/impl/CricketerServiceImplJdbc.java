@@ -20,7 +20,7 @@ public class CricketerServiceImplJdbc implements CricketerService {
     }
 
     @Override
-    public Integer addCricketer(Cricketer cricketer) throws SQLException {
+    public Integer addCricketer(Cricketer cricketer)throws SQLException {
         int id = cricketerDAO.addCricketer(cricketer);
         if (id > 0) {
             cricketer.setCricketerId(id);
@@ -29,24 +29,24 @@ public class CricketerServiceImplJdbc implements CricketerService {
     }
 
     @Override
-    public List<Cricketer> getAllCricketersSortedByExperience() throws SQLException {
+    public List<Cricketer> getAllCricketersSortedByExperience()throws SQLException {
         List<Cricketer> list = cricketerDAO.getAllCricketers();
         Collections.sort(list);
         return list;
     }
 
     @Override
-    public void updateCricketer(Cricketer cricketer) throws SQLException {
+    public void updateCricketer(Cricketer cricketer)throws SQLException {
         cricketerDAO.updateCricketer(cricketer);
     }
 
     @Override
-    public void deleteCricketer(int cricketerId) throws SQLException {
+    public void deleteCricketer(int cricketerId) throws SQLException{
         cricketerDAO.deleteCricketer(cricketerId);
     }
 
     @Override
-    public Cricketer getCricketerById(int cricketerId) throws SQLException {
+    public Cricketer getCricketerById(int cricketerId) throws SQLException{
         return cricketerDAO.getCricketerById(cricketerId);
     }
 }

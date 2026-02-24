@@ -19,12 +19,12 @@ public class MatchServiceImplJdbc implements MatchService {
     }
 
     @Override
-    public Match getMatchById(int matchId) throws SQLException {
+    public Match getMatchById(int matchId)throws SQLException{
         return matchDAO.getMatchById(matchId);
     }
 
     @Override
-    public Integer addMatch(Match match) throws SQLException {
+    public Integer addMatch(Match match) throws SQLException{
         int id = matchDAO.addMatch(match);
         if (id > 0) {
             match.setMatchId(id);
@@ -33,12 +33,12 @@ public class MatchServiceImplJdbc implements MatchService {
     }
 
     @Override
-    public void updateMatch(Match match) throws SQLException {
+    public void updateMatch(Match match) throws SQLException{
         matchDAO.updateMatch(match);
     }
 
     @Override
-    public void deleteMatch(int matchId) throws SQLException {
+    public void deleteMatch(int matchId) throws SQLException{
         matchDAO.deleteMatch(matchId);
     }
 }

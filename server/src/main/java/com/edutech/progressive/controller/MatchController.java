@@ -2,6 +2,7 @@ package com.edutech.progressive.controller;
 
 import com.edutech.progressive.entity.Match;
 import com.edutech.progressive.exception.NoMatchesFoundException;
+import com.edutech.progressive.service.MatchService;
 import com.edutech.progressive.service.impl.MatchServiceImplJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import java.util.List;
 public class MatchController {
 
     @Autowired
-    private MatchServiceImplJpa matchService;
+    private MatchService matchService;
 
     @GetMapping
     public ResponseEntity<List<Match>> getAllMatches() {
@@ -68,12 +69,6 @@ public class MatchController {
 
     @GetMapping("/status/{status}")
     public ResponseEntity<?> getAllMatchesByStatus(@PathVariable String status) {
-        try {
-            return ResponseEntity.ok(matchService.getAllMatchesByStatus(status));
-        } catch (NoMatchesFoundException e) {
-            return ResponseEntity.status(404).body(e.getMessage());
-        } catch (SQLException e) {
-            return ResponseEntity.internalServerError().build();
-        }
+        return ResponseEntity.ok(matchService.getAllMatchesByStatus(status));
     }
 }

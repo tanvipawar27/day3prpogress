@@ -3,6 +3,7 @@ package com.edutech.progressive.controller;
 import com.edutech.progressive.entity.Team;
 import com.edutech.progressive.exception.TeamAlreadyExistsException;
 import com.edutech.progressive.exception.TeamDoesNotExistException;
+import com.edutech.progressive.service.TeamService;
 import com.edutech.progressive.service.impl.TeamServiceImplArraylist;
 import com.edutech.progressive.service.impl.TeamServiceImplJpa;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.List;
 public class TeamController {
 
     @Autowired
-    private TeamServiceImplJpa teamServiceJpa;
+    private TeamService teamServiceJpa;
 
     @Autowired
     private TeamServiceImplArraylist teamArrayListService;
@@ -35,8 +36,7 @@ public class TeamController {
         try {
             Team team = teamServiceJpa.getTeamById(teamId);
             return ResponseEntity.ok(team);
-        } catch (TeamDoesNotExistException e) {
-            return ResponseEntity.status(404).body(e.getMessage());
+            // throw new TeamDoesNotExistException("null");
         } catch (SQLException e) {
             return ResponseEntity.internalServerError().build();
         }
@@ -47,9 +47,8 @@ public class TeamController {
         try {
             int id = teamServiceJpa.addTeam(team);
             return ResponseEntity.status(201).body(id);
-        } catch (TeamAlreadyExistsException e) {
-            return ResponseEntity.status(400).body(e.getMessage());
-        } catch (SQLException e) {
+        }
+         catch (SQLException e) {
             return ResponseEntity.internalServerError().build();
         }
     }
@@ -60,9 +59,7 @@ public class TeamController {
             team.setTeamId(teamId);
             teamServiceJpa.updateTeam(team);
             return ResponseEntity.ok().build();
-        } catch (TeamAlreadyExistsException e) {
-            return ResponseEntity.status(400).body(e.getMessage());
-        } catch (SQLException e) {
+        }  catch (SQLException e) {
             return ResponseEntity.internalServerError().build();
         }
     }
