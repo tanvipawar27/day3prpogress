@@ -1,12 +1,12 @@
 package com.edutech.progressive.service.impl;
-
-import entity.Team;
-import service.TeamService;
+import com.edutech.progressive.dao.*;
+import com.edutech.progressive.entity.*;
+import com.edutech.progressive.service.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamServiceImplArrayList implements TeamService {
+public class TeamServiceImplArraylist implements TeamService {
 
     private List<Team> teams = new ArrayList<>();
 

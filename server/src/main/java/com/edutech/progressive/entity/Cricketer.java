@@ -102,4 +102,13 @@ public class Cricketer {
         this.totalWickets = totalWickets;
     }
 
+    public int getCricketerId() {
+        return cricketerId;
+    }
+
+    public void setCricketerId(int cricketerId) {
+        this.cricketerId = cricketerId;
+    }
+
+     
 }

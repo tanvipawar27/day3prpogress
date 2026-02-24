@@ -1,9 +1,9 @@
 package com.edutech.progressive.service.impl;
 
-
-import dao.TeamDAO;
-import entity.Team;
-import service.TeamService;
+import com.edutech.progressive.entity.*;
+import com.edutech.progressive.dao.*;
+import com.edutech.progressive.entity.*;
+import com.edutech.progressive.service.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,5 +37,11 @@ public class TeamServiceImplJdbc implements TeamService {
 
     @Override
     public void deleteTeam(int teamId) {
+    }
+
+    @Override
+    public List<Team> getAllTeamsSortedByName() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllTeamsSortedByName'");
     }
 }

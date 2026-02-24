@@ -2,6 +2,9 @@ package com.edutech.progressive.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Match {
 
     private int matchId;

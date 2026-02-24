@@ -1,14 +1,20 @@
 package com.edutech.progressive.service.impl;
 
-
-import entity.Cricketer;
-import service.CricketerService;
+import com.edutech.progressive.entity.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import com.edutech.progressive.dao.*;
+import com.edutech.progressive.entity.*;
+import com.edutech.progressive.service.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class CricketerServiceImplArrayList implements CricketerService {
+
+import com.edutech.progressive.dao.CricketerDAO;
+
+public class CricketerServiceImplArraylist implements CricketerDAO {
 
     private List<Cricketer> cricketers = new ArrayList<>();
 
@@ -18,7 +24,7 @@ public class CricketerServiceImplArrayList implements CricketerService {
     }
 
     @Override
-    public Integer addCricketer(Cricketer cricketer) {
+    public int addCricketer(Cricketer cricketer) {
         return -1;
     }
 
@@ -30,5 +36,21 @@ public class CricketerServiceImplArrayList implements CricketerService {
     @Override
     public void emptyArrayList() {
         cricketers.clear();
+    }
+
+    @Override
+    public Cricketer getCricketerById(int cricketerId) {
+        return null;
+       
+    }
+
+    @Override
+    public void updateCricketer(Cricketer cricketer) {
+       
+    }
+
+    @Override
+    public void deleteCricketer(int cricketerId) {
+       
     }
 }

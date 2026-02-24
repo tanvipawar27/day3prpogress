@@ -10,4 +10,6 @@ public interface CricketerDAO {
     void updateCricketer (Cricketer cricketer);
     void deleteCricketer (int cricketerId);
     List<Cricketer> getAllCricketers();
+    List<Cricketer> getAllCricketersSortedByExperience();
+    void emptyArrayList();
 }
