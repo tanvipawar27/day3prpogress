@@ -7,16 +7,23 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+// @Service
 public class TeamServiceImplJdbc implements TeamService {
+    // @Autowired
     private TeamDAO teamDAO;
 
-    public TeamServiceImplJdbc(TeamDAO teamDAO) {
-        this.teamDAO = teamDAO;
-    }
+    // public TeamServiceImplJdbc(TeamDAO teamDAO) {
+    //     this.teamDAO = teamDAO;
+    // }
 
     @Override
     public List<Team> getAllTeams() throws SQLException {
         return teamDAO.getAllTeams();
+    }
+
+    public TeamServiceImplJdbc() {
     }
 
     @Override

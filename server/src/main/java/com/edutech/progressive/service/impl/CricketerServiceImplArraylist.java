@@ -8,13 +8,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.edutech.progressive.dao.*;
 import com.edutech.progressive.entity.*;
 import com.edutech.progressive.service.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Service
 public class CricketerServiceImplArraylist implements CricketerService {
 
     private List<Cricketer> cricketers = new ArrayList<>();

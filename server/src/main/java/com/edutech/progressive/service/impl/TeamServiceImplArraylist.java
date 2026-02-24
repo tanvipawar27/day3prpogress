@@ -6,7 +6,8 @@ import com.edutech.progressive.service.TeamService;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+import org.springframework.stereotype.Service;
+@Service
 public class TeamServiceImplArraylist implements TeamService {
 
     private List<Team> teams = new ArrayList<>();

@@ -4,7 +4,8 @@ import com.edutech.progressive.entity.Match;
 
 import java.sql.SQLException;
 import java.util.List;
-
+import org.springframework.stereotype.Service;
+@Service
 public interface MatchService {
 
     List<Match> getAllMatches() throws SQLException;

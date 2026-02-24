@@ -6,12 +6,17 @@ import com.edutech.progressive.service.MatchService;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+@Service
 public class MatchServiceImplJdbc implements MatchService {
+
+    // @Autowired(required = true)
     private MatchDAO matchDAO;
 
-    public MatchServiceImplJdbc(MatchDAO matchDAO) {
-        this.matchDAO = matchDAO;
-    }
+    // public MatchServiceImplJdbc(MatchDAO matchDAO) {
+    //     this.matchDAO = matchDAO;
+    // }
 
     @Override
     public List<Match> getAllMatches() throws SQLException {
@@ -35,6 +40,9 @@ public class MatchServiceImplJdbc implements MatchService {
     @Override
     public void updateMatch(Match match) throws SQLException{
         matchDAO.updateMatch(match);
+    }
+
+    public MatchServiceImplJdbc() {
     }
 
     @Override
