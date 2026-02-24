@@ -1,17 +1,44 @@
 package com.edutech.progressive.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-public class Cricketer implements Comparable<Cricketer>{
+@Table(name = "cricketer")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+public class Cricketer implements Comparable<Cricketer> {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cricketer_id")
     private int cricketerId;
+
+    @Column(name = "team_id")
     private int teamId;
+
+    @ManyToOne
+    @JoinColumn(name = "team_id", referencedColumnName = "team_id", insertable = false, updatable = false)
+    private Team team;
+
+    @Column(name = "cricketer_name")
     private String cricketerName;
+
+    @Column(name = "age")
     private int age;
+
+    @Column(name = "nationality")
     private String nationality;
+
+    @Column(name = "experience")
     private int experience;
+
+    @Column(name = "role")
     private String role;
+
+    @Column(name = "total_runs")
     private int totalRuns;
+
+    @Column(name = "total_wickets")
     private int totalWickets;
 
     public Cricketer() {
@@ -30,7 +57,7 @@ public class Cricketer implements Comparable<Cricketer>{
         this.totalWickets = totalWickets;
     }
 
-    public int getCricketId() {
+    public int getCricketerId() {
         return cricketerId;
     }
 
@@ -44,6 +71,14 @@ public class Cricketer implements Comparable<Cricketer>{
 
     public void setTeamId(int teamId) {
         this.teamId = teamId;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     public String getCricketerName() {
@@ -104,9 +139,21 @@ public class Cricketer implements Comparable<Cricketer>{
 
     @Override
     public int compareTo(Cricketer o) {
-        // TODO Auto-generated method stub
-        return Integer.compare(this.experience,o.getExperience());
-        // throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+        return Integer.compare(this.experience, o.experience);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Cricketer that = (Cricketer) o;
+        return cricketerId == that.cricketerId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cricketerId);
+    }
 }
