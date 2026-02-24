@@ -1,16 +1,13 @@
 package com.edutech.progressive.service.impl;
 
-
 import com.edutech.progressive.dao.TeamDAO;
 import com.edutech.progressive.entity.Team;
 import com.edutech.progressive.service.TeamService;
-
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
 public class TeamServiceImplJdbc implements TeamService {
-
     private TeamDAO teamDAO;
 
     public TeamServiceImplJdbc(TeamDAO teamDAO) {
@@ -18,34 +15,38 @@ public class TeamServiceImplJdbc implements TeamService {
     }
 
     @Override
-    public List<Team> getAllTeams() {
+    public List<Team> getAllTeams() throws SQLException {
         return teamDAO.getAllTeams();
     }
 
     @Override
-    public int addTeam(Team team) {
-        return 1;
+    public int addTeam(Team team) throws SQLException {
+        int id = teamDAO.addTeam(team);
+        if (id > 0) {
+            team.setTeamId(id);
+        }
+        return id;
     }
 
     @Override
-    public Team getTeamById(int teamId) {
-        return null;
+    public List<Team> getAllTeamsSortedByName() throws SQLException {
+        List<Team> list = teamDAO.getAllTeams();
+        Collections.sort(list);
+        return list;
     }
 
     @Override
-    public void updateTeam(Team team) {
+    public Team getTeamById(int teamId) throws SQLException {
+        return teamDAO.getTeamById(teamId);
     }
 
     @Override
-    public void deleteTeam(int teamId) {
+    public void updateTeam(Team team) throws SQLException {
+        teamDAO.updateTeam(team);
     }
 
     @Override
-    public List<Team> getAllTeamsSortedByName() {
-        // TODO Auto-generated method stub
-        List<Team> t=teamDAO.getAllTeams();
-        Collections.sort(t);
-        return t;
-    // throw new UnsupportedOperationException("Unimplemented method 'getAllTeamsSortedByName'");
+    public void deleteTeam(int teamId) throws SQLException {
+        teamDAO.deleteTeam(teamId);
     }
 }
