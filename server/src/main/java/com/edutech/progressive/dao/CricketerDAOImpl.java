@@ -1,6 +1,7 @@
 package com.edutech.progressive.dao;
 
-import com.edutech.progressive.entity.*;
+
+import com.edutech.progressive.entity.Cricketer;
 import java.util.ArrayList;
 import java.util.List;
 

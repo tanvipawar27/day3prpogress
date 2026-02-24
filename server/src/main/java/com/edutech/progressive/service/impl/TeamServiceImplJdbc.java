@@ -1,11 +1,12 @@
 package com.edutech.progressive.service.impl;
 
-import com.edutech.progressive.entity.*;
-import com.edutech.progressive.dao.*;
-import com.edutech.progressive.entity.*;
-import com.edutech.progressive.service.*;
+
+import com.edutech.progressive.dao.TeamDAO;
+import com.edutech.progressive.entity.Team;
+import com.edutech.progressive.service.TeamService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TeamServiceImplJdbc implements TeamService {
@@ -18,12 +19,12 @@ public class TeamServiceImplJdbc implements TeamService {
 
     @Override
     public List<Team> getAllTeams() {
-        return new ArrayList<>();
+        return teamDAO.getAllTeams();
     }
 
     @Override
     public int addTeam(Team team) {
-        return -1;
+        return 1;
     }
 
     @Override
@@ -42,6 +43,9 @@ public class TeamServiceImplJdbc implements TeamService {
     @Override
     public List<Team> getAllTeamsSortedByName() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllTeamsSortedByName'");
+        List<Team> t=teamDAO.getAllTeams();
+        Collections.sort(t);
+        return t;
+    // throw new UnsupportedOperationException("Unimplemented method 'getAllTeamsSortedByName'");
     }
 }

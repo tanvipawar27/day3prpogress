@@ -2,8 +2,9 @@ package com.edutech.progressive.service.impl;
 
 
 import com.edutech.progressive.dao.CricketerDAO;
-import com.edutech.progressive.entity.*;
-import com.edutech.progressive.service.*;
+import com.edutech.progressive.entity.Cricketer;
+import com.edutech.progressive.service.CricketerService;
+
 import java.util.ArrayList;
 import java.util.List;
 

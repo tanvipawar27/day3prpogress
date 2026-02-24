@@ -3,7 +3,7 @@ package com.edutech.progressive.entity;
 import javax.persistence.Entity;
 
 @Entity
-public class Cricketer {
+public class Cricketer implements Comparable<Cricketer>{
     private int cricketerId;
     private int teamId;
     private String cricketerName;
@@ -34,7 +34,7 @@ public class Cricketer {
         return cricketerId;
     }
 
-    public void setCricketId(int cricketerId) {
+    public void setCricketerId(int cricketerId) {
         this.cricketerId = cricketerId;
     }
 
@@ -102,13 +102,11 @@ public class Cricketer {
         this.totalWickets = totalWickets;
     }
 
-    public int getCricketerId() {
-        return cricketerId;
+    @Override
+    public int compareTo(Cricketer o) {
+        // TODO Auto-generated method stub
+        return Integer.compare(this.experience,o.getExperience());
+        // throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
     }
 
-    public void setCricketerId(int cricketerId) {
-        this.cricketerId = cricketerId;
-    }
-
-     
 }

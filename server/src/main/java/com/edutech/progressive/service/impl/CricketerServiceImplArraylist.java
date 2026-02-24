@@ -1,8 +1,11 @@
 package com.edutech.progressive.service.impl;
 
-import com.edutech.progressive.entity.*;
+
+import com.edutech.progressive.entity.Cricketer;
+import com.edutech.progressive.service.CricketerService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import com.edutech.progressive.dao.*;
@@ -12,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import com.edutech.progressive.dao.CricketerDAO;
-
-public class CricketerServiceImplArraylist implements CricketerDAO {
+public class CricketerServiceImplArraylist implements CricketerService {
 
     private List<Cricketer> cricketers = new ArrayList<>();
 
@@ -24,13 +25,15 @@ public class CricketerServiceImplArraylist implements CricketerDAO {
     }
 
     @Override
-    public int addCricketer(Cricketer cricketer) {
-        return -1;
+    public Integer addCricketer(Cricketer cricketer) {
+            cricketers.add(cricketer);
+        return 1;
     }
 
     @Override
     public List<Cricketer> getAllCricketersSortedByExperience() {
-        return new ArrayList<>();
+        Collections.sort(cricketers);
+        return cricketers;
     }
 
     @Override

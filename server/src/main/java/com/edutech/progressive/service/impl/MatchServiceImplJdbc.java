@@ -1,10 +1,8 @@
 package com.edutech.progressive.service.impl;
 
-import com.edutech.progressive.dao.*;
-import com.edutech.progressive.entity.*;
-import com.edutech.progressive.service.*;
-import java.util.ArrayList;
-import java.util.List;
+import com.edutech.progressive. dao.MatchDAO;
+import com.edutech.progressive.entity.Match;
+import com.edutech.progressive.service.MatchService;
 
 import com.edutech.progressive.entity.*;
 import java.util.ArrayList;
